@@ -2,6 +2,10 @@ package com.petask.petask_users.models;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * POJO class which declares the detailed data of an individual User
+ * It contains data like id, first name, last name and image
+ */
 public class User {
 
     private long id;
@@ -43,6 +47,10 @@ public class User {
         this.avatar = avatar;
     }
 
+    /**
+     * Method which combines user's first and last name and returns the full name
+     * @return full name of user
+     */
     public String getName() {
         return getFirstName() + " " + getLastName();
     }

@@ -17,17 +17,32 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Home page presenter which handles all the business logic which should happen in home page
+ * It notifies home view using the interface methods to update UI
+ * API call to load user data is implemented here
+ */
 public class HomePresenter {
     private final HomeView homeView;
     private final Context context;
     private final NetworkService networkService;
 
+    /**
+     *Constructor which takes home view interface and  context as its parameters
+     *
+     * @param homeView interface used to communicate between the presenter and corresponding view
+     * @param context Context
+     */
     public HomePresenter(HomeView homeView, Context context){
         this.homeView = homeView;
         this.context = context;
         this.networkService = new NetworkService();
     }
 
+    /**
+     * Method used to load user data
+     * @param pageNumber current page number - used for pagination
+     */
     public void getUsers(int pageNumber){
         final boolean isFirstPage = pageNumber == HomeActivity.FIRST_PAGE;
         if(isFirstPage) {
@@ -74,6 +89,14 @@ public class HomePresenter {
                 });
     }
 
+    /**
+     * Notify view in case of any error in api. Based on the current page number two different methods will be called
+     * If its the first page, we will show an error view and an option to retry for user
+     * Otherwise we will notify the adapter to discard pagination for the current instance of recycler view
+     *
+     * @param isFirstPage whether its the first page in pagination
+     * @param errorCode to identify the type of error
+     */
     private void handleFailure(boolean isFirstPage, int errorCode) {
         if (isFirstPage) {
             homeView.showErrorView(errorCode);

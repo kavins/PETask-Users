@@ -5,6 +5,10 @@ import com.petask.petask_users.models.User;
 
 import java.util.ArrayList;
 
+/**
+ * POJO class used to parse the "users" api response
+ * It contains data like current page number, total pages, number of user data per page, total number of users and user data for the particular page
+ */
 public class UserList {
 
     private int page;
