@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">PE Task - Users</string>
+
+    <!-- Pagination Loading String-->
+    <string name="loading">Loading..</string>
+
+    <!-- Error View Strings-->
+    <string name="error_view_unknown_error_title">Oops!</string>
+    <string name="error_view_unknown_error_message">Something went wrong. We are working on fixing it. Please try again in sometime.</string>
+
+    <string name="error_view_no_internet_title">Uh oh!</string>
+    <string name="error_view_no_internet_message">Seems you are not connected to internet. Please check your connection and try again.</string>
+
+    <string name="error_view_slow_internet_title">Uh oh!</string>
+    <string name="error_view_slow_internet_message">Seems your internet connection is too slow. Please check your connection and try again.</string>
+
+    <string name="error_view_retry">RETRY</string>
 </resources>
